@@ -10,6 +10,8 @@ public interface UserDAL {
 
 	User getUserById(String userId);
 
+	List<User> getUserByName(String name);
+
 	User addNewUser(User user);
 
 	Object getAllUserSettings(String userId);

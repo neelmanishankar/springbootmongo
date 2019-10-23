@@ -29,6 +29,13 @@ public class UserDALImpl implements UserDAL {
 	}
 
 	@Override
+	public List<User>  getUserByName(String name) {
+		Query query = new Query();
+		query.addCriteria(Criteria.where("name").is(name));
+		return mongoTemplate.find(query, User.class);
+	}
+
+	@Override
 	public User addNewUser(User user) {
 		mongoTemplate.save(user);
 		// Now, user object will contain the ID as well

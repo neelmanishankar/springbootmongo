@@ -37,8 +37,12 @@ public class UserController {
 
 	@RequestMapping(value = "", method = RequestMethod.GET)
 	public List<User> getAllUsers() {
-		LOG.info("Getting all users.");
-		return userRepository.findAll();
+		LOG.info("*******************Getting all users.   ");
+		// return userRepository.findAll();
+		String name= "Shubham2";
+		// return userDAL.getUserByName(name);
+		LOG.info("lllllllllll  : ", name);
+		return userRepository.findByName(name);
 	}
 
 	@RequestMapping(value = "/{userId}", method = RequestMethod.GET)
