@@ -1,6 +1,7 @@
 package com.journaldev.bootifulmongodb.controller;
 
 import java.util.List;
+import java.util.Arrays;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -40,9 +41,12 @@ public class UserController {
 		LOG.info("*******************Getting all users.   ");
 		// return userRepository.findAll();
 		String name= "Shubham2";
+		String[] list= {"Shubham2" , "Shubham"};
 		// return userDAL.getUserByName(name);
+		List<String> list1 = Arrays.asList(list);
 		LOG.info("lllllllllll  : ", name);
-		return userRepository.findByName(name);
+		LOG.info("kkkkkkkkkk : " , list.toString());
+		return userRepository.findByNameIn(list1);
 	}
 
 	@RequestMapping(value = "/{userId}", method = RequestMethod.GET)
